@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Carbon Footprint Tracker</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL jjXkk Q2h455rYXK/7HAuoJl 0I4"
+        crossorigin="anonymous"></script>
+</head>
+
+<body class="mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="row">
+                <div class="col" align="center">
+                    <input type="text" class="search-input inputlg" placeholder="Find Causes For Carbon Emissions...">
+                    <button class="search-button">Go</button>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col" align="center">
+                    <label for="sector-select">Sector:</label>
+                    <select class="form-select limit-select-size" name="sector-select" id="sector-select">
+                        <option select>All</option>
+                    </select>
+                    <div class="vr"></div>
+                    <label for="category-select">Category:</label>
+                    <select class="form-select limit-select-size" name="category-select" id="category-select">
+                        <option select>All</option>
+                    </select>
+                    <div class="vr"></div>
+                    <label for="unit-select">Unit Type:</label>
+                    <select class="form-select limit-select-size" name="unit-select" id="unit-select">
+                        <option select>Any</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5" style="display:none;">
+            <div class="col">
+                // SELECTED METHOD AND/OR SEARCH RESULT HERE
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col">
+                // WILL PUT PINNED METHODS HERE
+            </div>
+        </div>
+    </div>
+    <script src="js/fillselect.js"></script>
+    <script src="js/searchestimates.js"></script>
+</body>
+
+</html>

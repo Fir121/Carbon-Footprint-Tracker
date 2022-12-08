@@ -1,0 +1,25 @@
+.search-bar {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+
+  .search-input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.5s;
+  }
+
+  .search-button {
+    border: none;
+    background-color: #0ba2ff;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .limit-select-size{
+    display:inline;
+    width:10%;
+  }
