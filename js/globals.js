@@ -1,0 +1,1 @@
+const ROOT = "https://beta3.api.climatiq.io";

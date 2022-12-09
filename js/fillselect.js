@@ -1,4 +1,4 @@
-var sectoritems = [
+let sectoritems = [
     "Agriculture/Hunting/Forestry/Fishing",
     "Buildings and Infrastructure", 
     "Consumer Goods and Services",
@@ -17,15 +17,15 @@ var sectoritems = [
     "Waste", 
     "Water"
 ];
-var sectorselect = document.getElementById("sector-select");
-for (var i = 0; i < sectoritems.length; i++) {
-    var option = document.createElement("option");
+let sectorselect = document.getElementById("sector-select");
+for (let i = 0; i < sectoritems.length; i++) {
+    let option = document.createElement("option");
     option.value = sectoritems[i];
     option.text = sectoritems[i];
     sectorselect.appendChild(option);
 }
 
-var categoryitems = [
+let categoryitems = [
     "Accommodation",
     "Agriculture/Hunting/Forestry/Fishing",
     "Air Freight", 
@@ -126,14 +126,14 @@ var categoryitems = [
     "Water Treatment",
     "Wholesale Trade"
 ];
-var categoryselect = document.getElementById("category-select");
-for (var i = 0; i < categoryitems.length; i++) {
-    var option = document.createElement("option");
+let categoryselect = document.getElementById("category-select");
+for (let i = 0; i < categoryitems.length; i++) {
+    let option = document.createElement("option");
     option.value = categoryitems[i];
     option.text = categoryitems[i];
     categoryselect.appendChild(option);
 }
-var unititems = [
+let unititems = [
     "Area",
     "AreaOverTime",
     "ContainerOverDistance",
@@ -152,9 +152,9 @@ var unititems = [
     "WeightOverDistance",
     "WeightOverTime"
 ];
-var unitselect = document.getElementById("unit-select");
-for (var i = 0; i < unititems.length; i++) {
-    var option = document.createElement("option");
+let unitselect = document.getElementById("unit-select");
+for (let i = 0; i < unititems.length; i++) {
+    let option = document.createElement("option");
     option.value = unititems[i];
     option.text = unititems[i];
     unitselect.appendChild(option);
