@@ -23,31 +23,6 @@ document.getElementById("searchbarform").addEventListener("submit", function(e){
     let category = document.getElementById("category-select").options[document.getElementById("category-select").selectedIndex].value;
     let unit = document.getElementById("unit-select").options[document.getElementById("unit-select").selectedIndex].value;
 
+    document.getElementById("colshere").innerHTML = "";
     getEstimates(query, sector, category, unit, 1);
 });
-
-// Get a reference to all elements with the specified tag
-var elements = document.getElementsByClassName('rowHolder');
-
-// Loop through the elements
-for (var i = 0; i < elements.length; i++) {
-    // Add the event listener to the current element
-    elements[i].addEventListener('click', function() {
-            var element = document.getElementById("hideRow"+this.getAttribute("index"))
-            if(element.style.display === "none"){
-                element.style.display = "table-row";
-            }
-            else{
-                element.style.display = "none";
-            }
-
-            var elements1 = document.getElementsByClassName('rowHolder');
-            for (var j=0; j<elements1.length; j++){
-                if (j == parseInt(this.getAttribute("index"))){
-                    continue;
-                }
-                document.getElementById("hideRow"+j).style.display = "none";
-            }
-            
-    });
-}
