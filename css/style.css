@@ -58,3 +58,59 @@
   .description-collapse{
     background-color: #323539 !important;
   }
+  tr {
+    transition: height 0.25s ease-in-out, opacity 0.25s ease-in-out;
+  }
+  .noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
+
+  #popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: none;
+    background-color: rgb(95, 95, 95);
+    border-radius: 10px;
+    padding: 30px;
+  }
+  @media (max-width: 768px) {
+    #popup {
+      width: 90vw;
+    }
+  }
+
+  #backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+  }
+
+  #close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 20px;
+    font-size: xx-large;
+    background-color: transparent;
+    border:none;
+    color: white;
+  }
+
+  #popupunit{
+    padding:5px;
+    background-color: #323539;
+    border-radius: 0px 5px 5px 0px;
+  }

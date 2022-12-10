@@ -17,6 +17,36 @@
 </head>
 
 <body class="mt-5">
+    <div id="backdrop"></div>
+    <div id="popup">
+        <button id="close-button" onclick="hidePopup()">X</button>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 id="popuptitle" class="text-center">TITLE</h1>
+                    <p id="popupdesc">description long description long description long description long description long description long description long description long description long description long</p>
+                    <div class="hr"></div>
+                </div>
+                <form id="popupform">
+                    <div class="input-group mb-3">
+                        <input id="popupinput" type="text" class="form-control" pattern="^[0-9]+(\.[0-9]{1,2})?$" placeholder="Enter value" required>
+                        <div class="input-group-append" id="popupunit">
+                        </div>
+                    </div>
+                
+                    <div class="col-12" align="center">
+                        <button class="btn btn-dark" id="popupbtn">CALCULATE</button>
+                    </div>
+                </form>
+            </div>
+            <div class="row">
+                <div class="col">
+                    RESULT DATA HERE
+                </div>
+            </div>
+        </div>
+    </div>
+  
     <div class="container">
         <div class="row">
             <div class="row">
@@ -43,10 +73,15 @@
                     <select class="form-select limit-select-size" name="unit-select" id="unit-select">
                         <option select>Any</option>
                     </select>
+                    <div class="vr"></div>
+                    <label for="region-select">Region:</label>
+                    <select class="form-select limit-select-size" name="region-select" id="region-select">
+                        <option select>Any</option>
+                    </select>
                 </div>
                 <div id="filterbuttonholder" class="col" align="center">
                     <p id="filterbutton">
-                        <b id="filterbuttontext" class="show-filter-button">Show Filters</b>
+                        <b id="filterbuttontext" class="show-filter-button noselect">Show Filters</b>
                     </p>
                 </div>
             </div>
@@ -61,7 +96,6 @@
                         <th scope="col">Sector</th>
                         <th scope="col">Category</th>
                         <th scope="col">Unit</th>
-                        <!-- Add more <th> elements for each column in your table -->
                       </tr>
                     </thead>
                     <tbody style="cursor:pointer;" id="colshere">
@@ -77,6 +111,7 @@
         </div>
     </div>
     <script src="js/globals.js"></script>
+    <script src="js/calculator.js"></script>
     <script src="js/fillselect.js"></script>
     <script src="js/searchestimates.js"></script>
     <script src="js/buttons.js"></script>

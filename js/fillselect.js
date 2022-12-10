@@ -1,3 +1,4 @@
+/* THIS FILE IS JUST RAW DATA INSERTED INTO THE SELECTORS, THE DATA HAS BEEN SCRAPED FROM THE API */
 let sectoritems = [
     "Agriculture/Hunting/Forestry/Fishing",
     "Buildings and Infrastructure", 
@@ -133,24 +134,26 @@ for (let i = 0; i < categoryitems.length; i++) {
     option.text = categoryitems[i];
     categoryselect.appendChild(option);
 }
+/*
+"AreaOverTime",
+"ContainerOverDistance",
+"DataOverTime",
+"DistanceOverTime",
+"Number",
+"NumberOverTime",
+"PassengerOverDistance",
+"WeightOverDistance",
+"WeightOverTime"
+*/
 let unititems = [
     "Area",
-    "AreaOverTime",
-    "ContainerOverDistance",
     "Data",
-    "DataOverTime",
     "Distance",
-    "DistanceOverTime",
     "Energy",
     "Money",
-    "Number",
-    "NumberOverTime",
-    "PassengerOverDistance",
     "Time",
     "Volume",
     "Weight",
-    "WeightOverDistance",
-    "WeightOverTime"
 ];
 let unitselect = document.getElementById("unit-select");
 for (let i = 0; i < unititems.length; i++) {
