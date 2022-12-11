@@ -16,6 +16,10 @@ document.getElementById("filterbutton").addEventListener("click", function(){
     }
 }); 
 
+function closeTable(){
+    document.getElementById("resultholder").style.display = "none";
+}
+
 document.getElementById("searchbarform").addEventListener("submit", function(e){
     e.preventDefault();
     let query = document.getElementById("searchbar").value;
@@ -23,6 +27,5 @@ document.getElementById("searchbarform").addEventListener("submit", function(e){
     let category = document.getElementById("category-select").options[document.getElementById("category-select").selectedIndex].value;
     let unit = document.getElementById("unit-select").options[document.getElementById("unit-select").selectedIndex].value;
 
-    document.getElementById("colshere").innerHTML = "";
     getEstimates(query, sector, category, unit, 1);
 });

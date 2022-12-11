@@ -3,7 +3,6 @@ function printEstimates(data,page){
     var holder =  document.getElementById("colshere");
     var tofill = data.results;
     count = 0;
-    console.log(tofill);
     for (var i=0; i<tofill.length; i++){
         if (tofill[i] === null){
             continue;
@@ -11,7 +10,7 @@ function printEstimates(data,page){
         count++;
         var row = document.createElement("tr");
         row.classList.add("rowHolder","noselect");
-        row.setAttribute("index", i);
+        row.setAttribute("index", count-1);
         row.addEventListener('click', function() {
                 var element = document.getElementById("hideRow"+this.getAttribute("index"))
                 if(element.style.opacity === "0"){
@@ -36,12 +35,15 @@ function printEstimates(data,page){
                     if (j == parseInt(this.getAttribute("index"))){
                         continue;
                     }
-                    var element = document.getElementById("hideRow"+j);
-                    element.style.height = "0";
-                    element.style.opacity = "0";
-                    element.children[0].style.padding = "0";
-                    for (var i = 0; i < element.children[0].children.length; i++) {
-                        element.children[0].children[i].style.display = "none";
+                    var element2 = document.getElementById("hideRow"+j);
+                    if (element2 === null){
+                        continue
+                    }
+                    element2.style.height = "0";
+                    element2.style.opacity = "0";
+                    element2.children[0].style.padding = "0";
+                    for (var i = 0; i < element2.children[0].children.length; i++) {
+                        element2.children[0].children[i].style.display = "none";
                     }
                 }
                 
@@ -62,7 +64,7 @@ function printEstimates(data,page){
         holder.appendChild(row);
 
         var row = document.createElement("tr");
-        row.id = "hideRow"+i;
+        row.id = "hideRow"+(count-1);
         row.style.opacity = "0";
         row.style.height = "0";
         var cell = document.createElement("td");
@@ -119,6 +121,19 @@ function getEstimates(query, sector, category, unit, page){
         })
         .then(response => response.json())
         .then(data => {
+            document.getElementById("colshere").innerHTML = "";
+
+            document.getElementById("pages").innerHTML = data.current_page+"/"+data.last_page;
+            document.getElementById("prevtable").onclick = function(){
+                if (page > 1){
+                    getEstimates(query, sector, category, unit, page-1);
+                }
+            }
+            document.getElementById("nexttable").onclick = function(){
+                if (page < data.last_page){
+                    getEstimates(query, sector, category, unit, page+1);
+                }
+            }
             for (var i=0; i<data.results.length; i++){
                 for (var j=0; j<NOTALLOWED.length; j++){
                     if (data.results[i].unit_type.indexOf(NOTALLOWED[j]) > -1){

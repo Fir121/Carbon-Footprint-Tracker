@@ -81,6 +81,9 @@
     background-color: rgb(95, 95, 95);
     border-radius: 10px;
     padding: 30px;
+    max-height: 90vh;
+    overflow-y: scroll;
+    box-shadow: rgba(0,0,0, 0.44) 0px 3px 8px;
   }
   @media (max-width: 768px) {
     #popup {
@@ -113,4 +116,18 @@
     padding:5px;
     background-color: #323539;
     border-radius: 0px 5px 5px 0px;
+  }
+
+  #popupChartHolder{
+    padding-bottom: 20px;
+  }
+
+  .report{
+    background-color: #323539;
+    padding: 30px;
+    border-radius: 20px;
+  }
+
+  body{
+    overflow-x: hidden;
   }

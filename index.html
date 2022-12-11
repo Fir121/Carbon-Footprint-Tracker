@@ -21,15 +21,15 @@
     <div id="popup">
         <button id="close-button" onclick="hidePopup()">X</button>
         <div class="container">
-            <div class="row">
+            <div class="row-11">
                 <div class="col-12">
-                    <h1 id="popuptitle" class="text-center">TITLE</h1>
-                    <p id="popupdesc">description long description long description long description long description long description long description long description long description long description long</p>
+                    <h1 id="popuptitle" class="text-center"></h1>
+                    <p id="popupdesc"></p>
                     <div class="hr"></div>
                 </div>
                 <form id="popupform">
                     <div class="input-group mb-3">
-                        <input id="popupinput" type="text" class="form-control" pattern="^[0-9]+(\.[0-9]{1,2})?$" placeholder="Enter value" required>
+                        <input id="popupinput" type="text" class="form-control" pattern="^[0-9]+(\.[0-9]{1,2})?$" placeholder="Enter value" autocomplete="off" required>
                         <div class="input-group-append" id="popupunit">
                         </div>
                     </div>
@@ -39,9 +39,31 @@
                     </div>
                 </form>
             </div>
-            <div class="row">
+            <div class="row mt-5" id="popupresults" style="display:none;">
                 <div class="col">
-                    RESULT DATA HERE
+                    <div class="row mb-2">
+                        <div class="col-6 text-end fs-2 text">
+                            Net Emissions
+                        </div>
+                        <div class="col-6 text-start fs-2 text fw-bold" id="popupemissions">
+                        </div>
+                    </div>
+                    <div class="col" align="center">
+                        <div id="popupChartHolder" class="col-md-6">
+                            <canvas id="popupChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="col-12" align="center">
+                        <button class="btn btn-warning" id="popupaddbtn" onclick="addRecord(1);">ADD ENTIRE AMOUNT TO YOUR EMISSIONS</button>
+                        <form id="popuppartadd">
+                            <div class="input-group w-50 mt-1">
+                                <span class="input-group-text">1 /</span>
+                                <input type="text" class="form-control" placeholder="Number" id="popuppart" type="number" min="1" required>
+                                <button class="btn btn-warning">ADD PARTLY</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -52,7 +74,7 @@
             <div class="row">
                 <div class="col" align="center">
                     <form id="searchbarform">
-                        <input id="searchbar" type="text" class="search-input inputlg" placeholder="Find Causes For Carbon Emissions..." required>
+                        <input id="searchbar" type="text" class="search-input inputlg" placeholder="Find Causes For Carbon Emissions..." autocomplete="off" required>
                         <button class="search-button">Go</button>
                     </form>
                 </div>
@@ -89,32 +111,61 @@
 
         <div class="row mt-5" style="display:none;" id="resultholder">
             <div class="col">
-                <table class="table table-striped table-dark table-hover">
-                    <thead>
-                      <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Sector</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Unit</th>
-                      </tr>
-                    </thead>
-                    <tbody style="cursor:pointer;" id="colshere">
-                    </tbody>
-                  </table>
+                <div id="controls">
+                    <div class="row mb-2">
+                        <div class="col-4 text-start">
+                            <button class="btn btn-light" id="prevtable">Previous</button>
+                        </div>
+                        <div class="col-4 text-center" id="pages">
+                        </div>
+                        <div class="col-4 text-end">
+                            <button class="btn btn-light" id="nexttable">Next</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-dark table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Sector</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Unit</th>
+                        </tr>
+                        </thead>
+                        <tbody style="cursor:pointer;" id="colshere">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row text-center">
+                    <button class="btn btn-secondary" onclick="closeTable();">CLOSE</button>
+                </div>
             </div>
         </div>
 
-        <div class="row mt-5">
-            <div class="col">
-                // WILL PUT PINNED METHODS HERE
+        <div class="row-11 mt-5 report" id="myreport">
+            <div class="col-12 text-center fs-3 text fw-bold">
+                YOUR EMISSION REPORT
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                    <div class="row-12 text-center fs-5">Total Emissions<br><em class="fs-6">(CO2 Equivalent)</em></div>
+                    <div class="row-12 text-center fs-1" id="totalhere" style="padding:30px"></div>
+                </div>
+                <div class="chart-container col-md-6">
+                    <canvas id="personalChart"></canvas>
+                </div>
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.umd.js" integrity="sha512-gQhCDsnnnUfaRzD8k1L5llCCV6O9HN09zClIzzeJ8OJ9MpGmIlCxm+pdCkqTwqJ4JcjbojFr79rl2F1mzcoLMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/globals.js"></script>
     <script src="js/calculator.js"></script>
     <script src="js/fillselect.js"></script>
     <script src="js/searchestimates.js"></script>
     <script src="js/buttons.js"></script>
+    <script src="js/report.js"></script>
 </body>
 
 </html>
