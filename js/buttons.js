@@ -17,6 +17,10 @@ document.getElementById("filterbutton").addEventListener("click", function(){
 }); 
 
 function closeTable(){
+    if (document.getElementById("myreport").style.display === "none"){
+        document.getElementById('suggestions').style.display = 'block';
+    }
+
     document.getElementById("resultholder").style.display = "none";
 }
 

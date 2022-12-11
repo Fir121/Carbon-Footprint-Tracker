@@ -12,6 +12,7 @@ function updateCanvas(){
         return;
     }
     document.getElementById("myreport").style.display = "block";
+    document.getElementById("suggestions").style.display = "none";
 
     var co2 = 0;
     var ch4 = 0;
