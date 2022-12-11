@@ -121,6 +121,7 @@ function getEstimates(query, sector, category, unit, page){
         })
         .then(response => response.json())
         .then(data => {
+            document.getElementById("suggestions").style.display = "none";
             document.getElementById("colshere").innerHTML = "";
 
             document.getElementById("pages").innerHTML = data.current_page+" of "+data.last_page;
