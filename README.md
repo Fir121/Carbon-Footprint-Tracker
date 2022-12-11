@@ -30,3 +30,4 @@ This is a single html page site, it utilises JavaScript for dynamic functionalit
 * More Emission Choices (Needs to be implemented as per API Docs)
 * Connect to a Database to have user accounts
 * Log each emission type when added
+* Allow selection of Dates so emissions can be tracked Time-wise
