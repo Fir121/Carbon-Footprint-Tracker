@@ -90,7 +90,7 @@
         <div class="row mt-5">
             <div class="row">
                 <div class="col" align="center">
-                    <form id="searchbarform">
+                    <form id="searchbarform" name="searchbarform">
                         <input id="searchbar" type="text" class="search-input inputlg" placeholder="Find Causes For Carbon Emissions..." autocomplete="off" required>
                         <button class="search-button">Go</button>
                     </form>
@@ -126,17 +126,33 @@
             </div>
         </div>
 
+        <div class="row-11 mt-5 report" id="myreport">
+            <div class="col" align="center">
+                <p>
+                    Search Sugestions:
+                    <button type="button" class="btn btn-secondary" onclick="insertSearch('United Arab Emirates');">United Arab Emirates</button> , 
+                    <button type="button" class="btn btn-secondary" onclick="insertSearch('Ice Cream');">Ice Cream</button> , 
+                    <button type="button" class="btn btn-secondary" onclick="insertSearch('Petrol Car');">Petrol Car</button> , 
+                    <button type="button" class="btn btn-secondary" onclick="insertSearch('College');">College</button> , 
+                    <button type="button" class="btn btn-secondary" onclick="insertSearch('Air Fares');">Air Fares</button> , 
+                    <button type="button" class="btn btn-secondary" onclick="insertSearch('Books');">Books</button> , 
+                    <button type="button" class="btn btn-secondary" onclick="insertSearch('Driving Lessons');">Driving Lessons</button> , 
+                    <button type="button" class="btn btn-secondary" onclick="insertSearch('Sea Travel');">Sea Travel</button>
+                </p>
+            </div>
+        </div>
+
         <div class="row mt-5" style="display:none;" id="resultholder">
             <div class="col">
                 <div id="controls">
                     <div class="row mb-2">
                         <div class="col-4 text-start">
-                            <button class="btn btn-light" id="prevtable">Previous</button>
+                            <button class="btn btn-secondary" id="prevtable">Previous</button>
                         </div>
                         <div class="col-4 text-center" id="pages">
                         </div>
                         <div class="col-4 text-end">
-                            <button class="btn btn-light" id="nexttable">Next</button>
+                            <button class="btn btn-secondary" id="nexttable">Next</button>
                         </div>
                     </div>
                 </div>

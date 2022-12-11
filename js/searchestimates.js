@@ -123,7 +123,7 @@ function getEstimates(query, sector, category, unit, page){
         .then(data => {
             document.getElementById("colshere").innerHTML = "";
 
-            document.getElementById("pages").innerHTML = data.current_page+"/"+data.last_page;
+            document.getElementById("pages").innerHTML = data.current_page+" of "+data.last_page;
             document.getElementById("prevtable").onclick = function(){
                 if (page > 1){
                     getEstimates(query, sector, category, unit, page-1);
@@ -155,4 +155,9 @@ function getEstimates(query, sector, category, unit, page){
         console.log(error);
         // handle any errors
     });
+}
+
+function insertSearch(d){
+    document.getElementById("searchbar").value = d;
+    getEstimates(d, "All", "All", "Any", 1);
 }
