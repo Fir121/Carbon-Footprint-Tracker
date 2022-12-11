@@ -19,21 +19,22 @@ function updateCanvas(){
     var other = 0;
     var total = 0;
     for (var i=0; i<emissions.length;i++){
-        co2 += parseInt(emissions[i].co2);
-        ch4 += parseInt(emissions[i].ch4);
-        n2o += parseInt(emissions[i].n2o);
-        other += parseInt(emissions[i].other);
-        total += parseInt(emissions[i].total);
+        co2 += parseFloat(emissions[i].co2);
+        ch4 += parseFloat(emissions[i].ch4);
+        n2o += parseFloat(emissions[i].n2o);
+        other += parseFloat(emissions[i].other);
+        total += parseFloat(emissions[i].total);
     }
-    document.getElementById("totalhere").innerHTML = "<b>"+total+" kg</b>"
+    document.getElementById("totalhere").innerHTML = "<b>"+total.toFixed(2)+" kg</b>"
 
     var ctx = document.getElementById('personalChart').getContext('2d');
+    Chart.defaults.color = "#c8c8c8";
     report = new Chart(ctx, {
-        type: 'doughnut',
+        type: 'bar',
         data: {
         labels: ['Co2', 'CH4', 'N2O', "Other"],
         datasets: [{
-            label: 'Constituent Gases',
+            label: 'Available Breakdown (Partly)',
             data: [co2,ch4,n2o,other],
             backgroundColor: [
             'rgba(255, 99, 132, 0.2)',

@@ -68,9 +68,26 @@
             </div>
         </div>
     </div>
+
   
     <div class="container">
-        <div class="row">
+        <div class="row-11 mt-5 report" id="myreport">
+            <div class="col-12 text-center fs-3 text fw-bold">
+                YOUR EMISSION REPORT
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="chart-container col-md-6">
+                    <canvas id="personalChart"></canvas>
+                </div>
+                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                    <div class="row-12 text-center fs-5">Total Emissions<br><em class="fs-6">(CO2 Equivalent)</em></div>
+                    <div class="row-12 text-center fs-1" id="totalhere" style="padding:30px;color:white;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
             <div class="row">
                 <div class="col" align="center">
                     <form id="searchbarform">
@@ -143,21 +160,7 @@
             </div>
         </div>
 
-        <div class="row-11 mt-5 report" id="myreport">
-            <div class="col-12 text-center fs-3 text fw-bold">
-                YOUR EMISSION REPORT
-            </div>
-            <hr/>
-            <div class="row">
-                <div class="col-md-6 d-flex align-items-center justify-content-center">
-                    <div class="row-12 text-center fs-5">Total Emissions<br><em class="fs-6">(CO2 Equivalent)</em></div>
-                    <div class="row-12 text-center fs-1" id="totalhere" style="padding:30px"></div>
-                </div>
-                <div class="chart-container col-md-6">
-                    <canvas id="personalChart"></canvas>
-                </div>
-            </div>
-        </div>
+        
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.umd.js" integrity="sha512-gQhCDsnnnUfaRzD8k1L5llCCV6O9HN09zClIzzeJ8OJ9MpGmIlCxm+pdCkqTwqJ4JcjbojFr79rl2F1mzcoLMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/globals.js"></script>

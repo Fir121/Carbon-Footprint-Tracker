@@ -27,7 +27,7 @@ function insertResult(data){
     }
     console.log(data);
     document.getElementById("popupresults").style.display = "block";
-    document.getElementById("popupemissions").innerHTML = data.co2e+" "+data.co2e_unit;
+    document.getElementById("popupemissions").innerHTML = data.co2e.toFixed(2)+" "+data.co2e_unit;
     var ctx = document.getElementById('popupChart').getContext('2d');
 
     var co2 = (data.constituent_gases.co2 != null) ? data.constituent_gases.co2 : 0;
@@ -55,7 +55,7 @@ function insertResult(data){
     }
     
 
-    Chart.defaults.color = "#fff";
+    Chart.defaults.color = "#c8c8c8";
     chart = new Chart(ctx, {
         type: 'doughnut',
         data: {
