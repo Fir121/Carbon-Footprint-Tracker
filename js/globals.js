@@ -1,3 +1,6 @@
+/*
+    THIS FILE CONTAINS CONSTANTS
+*/
 const ROOT = "https://beta3.api.climatiq.io";
 const NOTALLOWED = [
     "AreaOverTime",

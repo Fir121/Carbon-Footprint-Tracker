@@ -1,5 +1,10 @@
+/*
+    ALL FUNCTIONS RELATED TO RENDERING THE CALCULATOR POPUP
+*/
+
 var chart;
 function addRecord(part){
+    // ADDS CALCULATED EMISSION DATA TO LOCALSTORAGE
     var emissions = [];
     if(localStorage.getItem("emissions") === null){
         localStorage.setItem("emissions", JSON.stringify(emissions));
@@ -21,6 +26,7 @@ function addRecord(part){
 }
 
 function insertResult(data){
+    // INSERTS DATA AFTER CALCULATE RETURNS A VALUE
     document.getElementById('popupChart').style.display = "block";
     if (chart){
         chart.destroy(0);
@@ -87,6 +93,7 @@ function insertResult(data){
 }
 
 function showPopup() {
+    // DISPLAYS POPUP
     var popup = document.getElementById("popup");
     var backdrop = document.getElementById("backdrop");
     document.getElementById("popupinput").value = "";
@@ -98,6 +105,7 @@ function showPopup() {
   }
   
   function hidePopup() {
+    // HIDES POPUP
     if (chart){
         chart.destroy(0);
     }
@@ -114,6 +122,7 @@ function showPopup() {
   }
 
 function openCalculator(data){
+    // INSERTS DATA WHICH WAS RECEIVED BY API WHILE RENDERING TABLE INTO THE POPUP
     document.getElementById("popuptitle").innerHTML = data.name;
     document.getElementById("popupdesc").innerHTML = data.description;
     document.getElementById("popupunit").innerHTML = data.unit.replace("kg/","");
@@ -123,6 +132,7 @@ function openCalculator(data){
     return;
 }
 
+// PART ADD OF POPUP
 document.getElementById("popuppartadd").addEventListener("submit", function(e){
     e.preventDefault();
     var part = document.getElementById("popuppart").value;
@@ -130,6 +140,7 @@ document.getElementById("popuppartadd").addEventListener("submit", function(e){
     addRecord(parseInt(part));
 });
 
+// CALCULATE BUTTON
 document.getElementById("popupform").addEventListener("submit", function(e){
     e.preventDefault();
     let inp = document.getElementById("popupinput").value;

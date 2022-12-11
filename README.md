@@ -8,8 +8,6 @@ This website uses the concepts covered in the [ACM Coding Bootcamp 2022](https:/
 
 It is a **Carbon Emissions Tracker**, as global warming intensifies and the threat grows larger, this website serves as a great source of awareness, you can use it to keep track of your emissions, use the search bar to find a source of emissions and add it to your record. It may suprise users to know how large the emissions are even for simple tasks.
 
----
-
 ## How was it made?
 
 This is a single html page site, it utilises JavaScript for dynamic functionality.

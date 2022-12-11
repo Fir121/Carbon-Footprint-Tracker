@@ -1,3 +1,8 @@
+/*
+    EVENT LISTENERS SOME ARE IN CALCULATOR.JS FILE AS IT IS MORE APPROPRIATE
+*/
+
+// TOGGLES FILTERS
 document.getElementById("filterbutton").addEventListener("click", function(){
     let x = document.getElementById("filters");
     if (x.style.display === "none") {
@@ -16,14 +21,7 @@ document.getElementById("filterbutton").addEventListener("click", function(){
     }
 }); 
 
-function closeTable(){
-    if (document.getElementById("myreport").style.display === "none"){
-        document.getElementById('suggestions').style.display = 'block';
-    }
-
-    document.getElementById("resultholder").style.display = "none";
-}
-
+// SUBMITS SEARCH INPUT
 document.getElementById("searchbarform").addEventListener("submit", function(e){
     e.preventDefault();
     let query = document.getElementById("searchbar").value;

@@ -1,4 +1,9 @@
+/*
+    ALL FUNCTIONS RELATED TO THE SEARCHING OF EMISSION TYPES
+*/
+
 function printEstimates(data,page){
+    // PRINT RECEIVED DATA TO TABLE
     document.getElementById("resultholder").style.display = "block";
     var holder =  document.getElementById("colshere");
     var tofill = data.results;
@@ -101,6 +106,7 @@ function printEstimates(data,page){
 }
 
 function getEstimates(query, sector, category, unit, page){
+    // GET DATA FROM API
     fetch("https://carbonemissiontracker.pythonanywhere.com/getkey", {
         method: "GET"
     })
@@ -159,6 +165,16 @@ function getEstimates(query, sector, category, unit, page){
 }
 
 function insertSearch(d){
+    // USED IN SEARCH SUGGESTIONS, AUTO SEARCH
     document.getElementById("searchbar").value = d;
     getEstimates(d, "All", "All", "Any", 1);
+}
+
+function closeTable(){
+    // CLOSES TABLE
+    if (document.getElementById("myreport").style.display === "none"){
+        document.getElementById('suggestions').style.display = 'block';
+    }
+
+    document.getElementById("resultholder").style.display = "none";
 }

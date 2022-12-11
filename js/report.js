@@ -1,5 +1,10 @@
+/*
+    ALL FUNCTIONS RELATED TO THE RENDERING OF YOUR EMISSION REPORT
+*/
+
 var report;
 function updateCanvas(){
+    // RENDERS THE CONTENT OF YOUR EMISSION REPORT WILL BE CALLED EACH TIME YOU ADD AMOUNT TO YOUR EMISSIONS AND ON PAGE LOAD
     if (report){
         report.destroy(0);
     }
