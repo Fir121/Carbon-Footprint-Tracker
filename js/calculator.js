@@ -154,7 +154,7 @@ document.getElementById("popupform").addEventListener("submit", function(e){
     if (unit_type === "data"){
         unit = unit.toUpperCase();
     }
-    fetch("https://carbonemissiontracker.pythonanywhere.com/getkey", {
+    fetch("https://carbonemissionsapi.firasadil.com/getkey", {
         method: "GET"
     })
     .then(response => response.json())

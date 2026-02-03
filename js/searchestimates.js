@@ -107,7 +107,7 @@ function printEstimates(data,page){
 
 function getEstimates(query, sector, category, unit, page){
     // GET DATA FROM API
-    fetch("https://carbonemissiontracker.pythonanywhere.com/getkey", {
+    fetch("https://carbonemissionsapi.firasadil.com/getkey", {
         method: "GET"
     })
     .then(response => response.json())
