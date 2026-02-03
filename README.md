@@ -1,6 +1,6 @@
 # Carbon Emissions Tracker
 
-[Hosted with Netlify](https://emissiontracker.netlify.app/)
+[Hosted on Server](https://carbonemissions.firasadil.com/)
 
 ## About This Project
 
