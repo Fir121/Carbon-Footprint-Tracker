@@ -126,8 +126,8 @@ function openCalculator(data){
     document.getElementById("popuptitle").innerHTML = data.name;
     document.getElementById("popupdesc").innerHTML = data.description;
     document.getElementById("popupunit").innerHTML = data.unit.replace("kg/","");
-    document.getElementById("popupbtn").setAttribute("uuid",data.uuid);
-    document.getElementById("popupbtn").setAttribute("unittype",data.unit_type[0]);
+    document.getElementById("popupbtn").setAttribute("uuid",data.activity_id);
+    document.getElementById("popupbtn").setAttribute("unittype",data.unit_type);
     showPopup();
     return;
 }
@@ -141,30 +141,46 @@ document.getElementById("popuppartadd").addEventListener("submit", function(e){
 });
 
 // CALCULATE BUTTON
-document.getElementById("popupform").addEventListener("submit", function(e){
+document.getElementById("popupform").addEventListener("submit", function (e) {
     e.preventDefault();
-    let inp = document.getElementById("popupinput").value;
-    let uuid = document.getElementById("popupbtn").getAttribute("uuid");
-    let unit_type = document.getElementById("popupbtn").getAttribute("unittype").toLowerCase();
+    const inpRaw = document.getElementById("popupinput").value.trim();
+    const inp = parseFloat(inpRaw);
+    if (Number.isNaN(inp)) {
+        return;
+    }
+
+    const uuid = document.getElementById("popupbtn").getAttribute("uuid");
+    const unitType = document.getElementById("popupbtn").getAttribute("unittype").toLowerCase();
     let unit = document.getElementById("popupunit").innerHTML.toLowerCase();
     document.getElementById("popupinput").value = "";
-    if (unit_type === "energy" && unit === "kwh"){
+
+    if (unitType === "energy" && unit === "kwh") {
         unit = "kWh";
     }
-    if (unit_type === "data"){
+    if (unitType === "data") {
         unit = unit.toUpperCase();
     }
-    fetch("https://carbonemissionsapi.firasadil.com/getkey", {
-        method: "GET"
-    })
-    .then(response => response.json())
-    .then(data => {
-        fetch(ROOT+"/estimate", {
-        method: 'POST',
-        body: '{"emission_factor": {"uuid": "'+uuid+'"}, "parameters": {"'+unit_type+'": '+inp+', "'+unit_type+'_unit": "'+unit+'"}}',
-        headers:{
-            'Authorization': 'Bearer '+data.key
-        },
+
+    fetch("https://carbonemissionsapi.firasadil.com/getkey", { method: "GET" })
+        .then(response => response.json())
+        .then(data => {
+            return fetch(ROOT + "/estimate", {
+                method: "POST",
+                headers: {
+                    "Authorization": "Bearer " + data.key,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emission_factor: {
+                        data_version: "30",
+                        activity_id: uuid
+                    },
+                    parameters: {
+                        [unitType]: inp,
+                        [`${unitType}_unit`]: unit
+                    }
+                })
+            });
         })
         .then(response => response.json())
         .then(data => {
@@ -173,10 +189,6 @@ document.getElementById("popupform").addEventListener("submit", function(e){
         .catch(error => {
             console.log(error);
         });
-    })
-    .catch(error => {
-        console.log(error);
-    });
 });
 
 

@@ -113,6 +113,7 @@ function getEstimates(query, sector, category, unit, page){
     .then(response => response.json())
     .then(data => {
         const params = new URLSearchParams();
+        params.append("data_version", "30")
         params.append("query", query);
         params.append("page",page);
         if (sector != "All"){params.append("sector",sector);}
